@@ -1,0 +1,221 @@
+✅ UNIT-III: Data Manipulation and Visualization (4 Marks Answers)
+
+### 1. What is Pandas? Explain its main data structures.
+
+Pandas is a library used for working with tables or structured data.
+It is mainly used for cleaning, analyzing, and transforming data.
+
+Main data structures:
+
+ Series – One-dimensional data (like a list with labels)
+ DataFrame – Two-dimensional table (like an Excel sheet)
+
+📌 Example:
+
+import pandas as pd
+
+# Series
+s = pd.Series([10, 20, 30])
+
+# DataFrame
+df = pd.DataFrame({'Name': ['Rayees', 'Ali'], 'Marks': [90, 85]})
+
+
+
+
+### 2. What is data cleaning and how is missing data handled in Pandas?
+
+Data cleaning is fixing wrong or missing values before analysis.
+
+Pandas functions to handle missing values:
+
+ `dropna()` → Removes rows with missing values
+ `fillna(value)` → Fills missing values with a value
+
+📌 Example:
+
+df = df.fillna(0)  # Replace all NaN with 0
+df = df.dropna()   # Drop rows with NaN
+
+
+This helps improve data quality before analysis.
+
+
+
+### 3. Difference between Matplotlib and Seaborn.
+
+| Feature     | Matplotlib   | Seaborn                 |
+| -- |  | -- |
+| Use         | Basic plots  | Advanced, stylish plots |
+| Code Length | More code    | Less code               |
+| Built on    | Base library | Built on Matplotlib     |
+
+📌 Example:
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Matplotlib
+plt.plot([1, 2, 3], [4, 5, 6])
+plt.show()
+
+# Seaborn
+sns.barplot(x=['A', 'B'], y=[10, 20])
+plt.show()
+
+
+
+
+### 4. What is indexing and filtering in Pandas?
+
+Indexing is accessing specific rows/columns.
+Filtering means selecting data based on conditions.
+
+📌 Example:
+
+df = pd.DataFrame({'Name': ['Rayees', 'Ali'], 'Marks': [90, 80]})
+
+print(df['Name'])           # Column
+print(df.loc[0])            # Row by label
+print(df[df['Marks'] > 85]) # Filter
+
+
+These are useful for selecting only the required data.
+
+
+
+### 5. What is data transformation in Pandas?
+
+Data transformation means modifying data to a better form.
+
+Common operations:
+
+ Changing values
+ Converting types
+
+📌 Example:
+
+df['Marks'] = df['Marks'].apply(lambda x: x + 5)
+df['Marks'] = df['Marks'].astype(float)
+
+
+It helps in preparing clean and consistent data for analysis.
+
+
+
+## ✅ UNIT-IV: EDA and Machine Learning (4 Marks Answers)
+
+
+
+✅ What is Data Analysis?
+Data Analysis is the process of collecting, cleaning, organizing, and studying data to find useful information, patterns, or answers to questions.
+
+✅ Importance of Data Analysis in Data Science (in simple words):
+Data Analysis (DA) is important in data science because it helps us understand, clean, and make sense of the data. It allows us to find patterns, remove errors, and get useful insights. This helps in making better decisions, building accurate machine learning models, and solving real-world problems based on facts.
+
+📌 Example:
+
+df.describe()           # Summary
+sns.boxplot(y=df['Marks'])  # Detect outliers
+
+
+Importance:
+
+ Detects errors
+ Finds relationships
+ Helps in feature selection
+
+
+
+### 7. What is correlation? How is it visualized?
+
+Correlation tells how two features are related.
+
+ +1 → Strong positive
+ -1 → Strong negative
+ 0 → No relation
+
+📌 Example:
+
+df.corr()                       # Numeric values
+sns.heatmap(df.corr(), annot=True)  # Visualize
+
+
+Used to choose best features for models.
+
+
+
+### 8. What is data preprocessing and feature scaling?
+
+Preprocessing prepares data by:
+
+ Handling missing values
+ Converting types
+ Scaling features
+
+Feature scaling brings all values to similar range.
+
+📌 Example:
+
+from sklearn.preprocessing import StandardScaler
+
+sc = StandardScaler()
+scaled = sc.fit_transform(df[['Marks']])
+
+
+This improves model performance.
+
+
+
+### 9. How to build and train a machine learning model?
+
+Steps:
+
+1. Prepare data
+2. Split into train/test
+3. Train model using `.fit()`
+4. Predict using `.predict()`
+
+📌 Example:
+
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+X = df[['Marks']]
+y = [1, 0]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+
+
+
+
+### 10. How to evaluate a machine learning model?
+
+Use metrics to check performance.
+For regression, use Mean Squared Error (MSE).
+
+📌 Example:
+
+from sklearn.metrics import mean_squared_error
+
+print(mean_squared_error(y_test, pred))
+A lower error means a better model.
+
+
+📌 Scikit-learn (also called sklearn) is one of the most popular machine learning libraries in Python.
+It provides simple tools for:
+Classification
+Regression
+Clustering
+Model Evaluation
+Preprocessing
+🔧 It's built on top of NumPy, Pandas, Matplotlib, and SciPy.
+
+
+Scikit-learn is a powerful Python library used for machine learning. It supports building models, preprocessing data, evaluating results, and tuning parameters.
+
+First, we clean and prepare the data using preprocessing techniques such as handling missing values and converting categorical data. We then scale the data using StandardScaler or MinMaxScaler.

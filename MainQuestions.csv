@@ -1,0 +1,100 @@
+Q1. Control Structures in Programming
+
+Definition:
+Control structures are programming instructions that control the flow of execution in a program. They decide what code should run, when, and how many times. These structures help in making decisions and repeating tasks.
+
+🔹 Types of Control Structures
+
+1. Sequential Control Structure
+
+    Executes code line by line in the order written.
+    Example:
+
+     ```python
+     a = 5
+     b = 10
+     print(a + b)
+     ```
+
+2. Selection / Decision Control Structure
+
+    Executes certain blocks of code based on conditions using `if`, `if-else`, or `elif`.
+    Example:
+
+     ```python
+     age = 18
+     if age >= 18:
+         print("Adult")
+     else:
+         print("Minor")
+     ```
+
+3. Looping / Iteration Control Structure
+
+    Repeats a block of code multiple times using loops (`for`, `while`).
+    Example:
+
+     ```python
+     for i in range(5):
+         print("Hello")
+     ```
+
+4. Jump Control Structure
+
+    Alters the normal flow using `break`, `continue`, and `pass`.
+    Example:
+
+     ```python
+     for i in range(5):
+         if i == 3:
+             break
+         print(i)
+
+
+
+Q2. Dynamic Typing 
+
+Definition:
+Dynamic typing means that you don’t need to declare the data type of a variable when writing the code. The interpreter automatically detects the type based on the assigned value at runtime.
+
+### ✅ Example (in Python):
+
+```python
+x = 10       # x is an integer
+x = "hello"  # now x is a string
+
+In the above example, the variable `x` changes its type from int to string. This is allowed in dynamically typed languages like Python.
+
+### ✅ Key Points:
+
+ Data type is decided at runtime, not during compilation.
+ Variables can change type during program execution.
+ Languages like Python, JavaScript, Ruby use dynamic typing.
+
+
+
+Q3. Exception handling:
+
+Exception handling in Python is a method used to handle errors that occur while a program is running. It allows the program to catch and manage errors instead of crashing. Python uses keywords like `try`, `except`, `else`, and `finally` to catch exceptions and provide user-friendly error messages or alternative actions.
+This makes the program more reliable and helps avoid unexpected crashes.
+
+Example:
+
+try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+except ValueError:
+    print("Please enter a valid number.")
+
+sum up:
+try: Runs your risky code
+
+except: Runs if there's an error
+
+else: Runs if no error happens
+
+finally: Runs no matter what (good for cleanup)
+
+
