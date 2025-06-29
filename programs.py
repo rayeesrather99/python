@@ -129,7 +129,7 @@ studentDetails = [
 
 studentDetails[0]["marks"] = 100
 
-#appends a new student to the list
+# appends a new student to the list
 # studentDetails.append({
 #     "name" : "newStudent",
 #     "marks" : 80
