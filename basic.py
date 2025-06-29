@@ -5,7 +5,7 @@
 # #integer
 # age = 21
 # #float
-pi = 3.14
+# pi = 3.14
 
 # print(name,age,pi)
 
@@ -18,7 +18,7 @@ pi = 3.14
 
 #Type Conversion and casting
 
-# a = int("10") #converting and string to int
+# a = int("10") #converting string to int
 # b = float("5.6") #convert string to float
 # c = str(100) #convert integer to string
 
@@ -109,8 +109,10 @@ pi = 3.14
 
 # Set with curly braces
 
-# basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana','watermelon'}
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana','watermelon'}
 # print(basket)
+# basket.add('apna fruit')
+print(basket)
 # type(basket)
 
 # Output:
@@ -196,3 +198,68 @@ pi = 3.14
 # print("~a =", ~a)         # -6
 # print("a << 1 =", a << 1) # 10
 # print("a >> 1 =", a >> 1) # 2
+
+
+# ✅ What is a Set?
+
+# A **set** is a collection of unique elements (no duplicates), and it's **unordered**.
+
+# **Example:**
+
+# 
+# a = {1, 2, 3, 4}
+# b = {3, 4, 5, 6}
+
+# ---
+
+# ## 🔁 Set Operations:
+
+# ### 1️⃣ **Union (A ∪ B)**
+
+# ➡ Combines elements from both sets without duplicates.
+
+# 
+# print(a.union(b))        # OR a | b
+# # Output: {1, 2, 3, 4, 5, 6}
+
+# ---
+
+# ### 2️⃣ **Intersection (A ∩ B)**
+
+# ➡ Gets **common** elements from both sets.
+
+# 
+# print(a.intersection(b))  # OR a & b
+# # Output: {3, 4}
+
+# ---
+
+# ### 3️⃣ **Difference (A - B)**
+
+# ➡ Gets elements in **A that are not in B**.
+
+# print(a.difference(b))    # OR a - b
+# # Output: {1, 2}
+
+# > Similarly, `b.difference(a)` will give:
+
+# print(b.difference(a))    # b - a
+# # Output: {5, 6}
+
+# ## ✅ Summary Table:
+
+# | Operation    | Symbol | Code                           | Meaning                         |                                    |
+# | ------------ | ------ | ------------------------------ | ------------------------------- | ---------------------------------- |
+# | Union        | ∪      | \`a                            | b`or`a.union(b)\`               | All unique elements from both sets |
+# | Intersection | ∩      | `a & b` or `a.intersection(b)` | Common elements in both sets    |                                    |
+# | Difference   | -      | `a - b` or `a.difference(b)`   | Elements only in `a` not in `b` |                                    |
+
+# ---
+
+# ### 🌟 Bonus Tip:
+
+# Sets ignore duplicates automatically:
+
+# 
+# s = {1, 2, 2, 3}
+# print(s)  # Output: {1, 2, 3}
