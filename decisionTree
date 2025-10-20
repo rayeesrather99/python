@@ -1,0 +1,88 @@
+import pandas as pd
+import math
+
+data = pd.read_csv("data.csv")
+print(data, "\n")
+
+
+# 2. FUNCTION TO CALCULATE ENTROPY
+def entropy(column):
+    values = column.value_counts()
+    total = len(column)
+    ent = 0
+    for val in values:
+        prob = val / total
+        ent += -prob * math.log2(prob)
+        # print(ent)
+    return ent
+
+
+# 3. FUNCTION TO CALCULATE INFORMATION GAIN
+def information_gain(data, attribute, target="Result"):
+    total_entropy = entropy(data[target])
+
+    values = data[attribute].unique()
+    weighted_entropy = 0
+
+    for val in values:
+        subset = data[data[attribute] == val]
+        prob = len(subset) / len(data)
+        
+        weighted_entropy += prob * entropy(subset[target])
+
+    # IG = total entropy - after split entropy
+    gain = total_entropy - weighted_entropy
+    return gain
+
+# 4. Calculate ig
+gains = {}
+for col in data.columns[:-1]:
+    gain = information_gain(data, col)
+    gains[col] = gain
+    print(f"Information Gain for {col:15}: {round(gain, 4)}")
+
+# 5. ROOT NODE
+root = max(gains, key=gains.get)
+print("\nThe Root is:", root)
+
+#6
+def recursiveDecisionTree(data, target="Result"):
+
+    if len(data[target].unique()) == 1:
+        return data[target].iloc[0]
+    #if no more features then return mode
+    if len(data.columns) == 1:
+        return data[target].mode()[0]
+
+    # here we ill find the best-attribute with highest ig
+    gains = {}
+    for col in data.columns[:-1]: 
+        gains[col] = information_gain(data, col)
+    
+    best_attr = max(gains, key=gains.get)
+
+    tree = {best_attr: {}}
+
+    for value in data[best_attr].unique():
+        subset = data[data[best_attr] == value]
+        
+        subset = subset.drop(columns=[best_attr])
+
+        #Now we will call use recursion here which will repeat all the same steps:
+        #Check if results are same
+        #Calculate IG
+        #Pick next best attribute
+        #Build another small branch
+        
+        subtree = recursiveDecisionTree(subset, target)
+        
+        tree[best_attr][value] = subtree
+
+    
+    return tree
+
+
+DecisionTree = recursiveDecisionTree(data)
+print("\n Final Decision Tree:")
+print(DecisionTree)
+
