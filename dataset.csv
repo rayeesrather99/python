@@ -1,0 +1,11 @@
+attendance,homework,participation,Friday-presence,Result
+low,avg,y,y,p
+med,good,n,y,f
+high,poor,y,n,p
+low,avg,n,n,f
+med,good,n,n,p
+high,poor,y,n,f
+low,avg,y,y,f
+med,good,n,y,p
+high,poor,n,y,p
+low,avg,y,n,p
